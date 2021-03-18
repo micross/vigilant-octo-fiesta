@@ -1,7 +1,6 @@
 FROM golang:latest as build-env
-ARG APP_FOLDER
-ADD . ${APP_FOLDER}
-WORKDIR ${APP_FOLDER}
+ADD . /opt/build
+WORKDIR /opt/build
 RUN CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' -o /bin/nfs-subdir-external-provisioner .
 
 FROM alpine:latest
