@@ -1,4 +1,4 @@
-FROM golang:latest as build-env
+FROM golang:1.16 as build-env
 COPY --from=tonistiigi/xx:golang-1.0.0 / /
 ADD . /opt/build
 WORKDIR /opt/build
